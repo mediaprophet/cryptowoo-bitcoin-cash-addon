@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 /**
  * Plugin Name: CryptoWoo eCash Add-on
- * Plugin URI: https://github.com/Olsm/cryptowoo-bitcoin-cash-addon
- * GitHub Plugin URI: Olsm/cryptowoo-bitcoin-cash-addon
+ * Plugin URI: https://github.com/mediaprophet/cryptowoo-ecash-addon
+ * GitHub Plugin URI: mediaprophet/cryptowoo-ecash-addon
  * Forked From: CryptoWoo/cryptowoo-dash-addon, Author: flxstn
  * Description: Accept XEC payments in WooCommerce. Requires CryptoWoo main plugin and CryptoWoo HD Wallet Add-on.
  * Version: 1.4.6
@@ -47,7 +47,7 @@ function cryptowoo_xec_addon_activate() {
 	}
 
 	if( (defined('CWOO_VERSION' ) && version_compare(CWOO_VERSION, '0.22.0', '<'))  || (defined('HDWALLET_VER' ) && version_compare(HDWALLET_VER, '0.9.1', '<'))) {
-		deactivate_plugins( '/cryptowoo-bitcoin-cash-addon/cryptowoo-bitcoin-cash-addon.php', true );
+		deactivate_plugins( '/cryptowoo-ecash-addon/cryptowoo-ecash-addon.php', true );
 	}
 }
 
@@ -293,7 +293,7 @@ function cwxec_address_prefixes( $prefixes ) {
 function cwxec_wallet_config( $wallet_config, $currency, $options ) {
 	if ( $currency === 'xec' ) {
 		$wallet_config                         = array(
-			'coin_client'   => 'bitcoincash',
+			'coin_client'   => 'ecash',
 			'request_coin'  => 'xec',
 			'multiplier'    => (float) $options[ 'multiplier_xec' ],
 			'safe_address'  => false,
@@ -353,7 +353,7 @@ function cwxec_link_to_address( $url, $address, $currency, $options ) {
 				$url = '#';
 			}
 		} elseif ( $options[ 'preferred_block_explorer_xec' ] === 'blockchair' ) {
-			$url     = "https://blockchair.com/bitcoin-cash/address/{$address}";
+			$url     = "https://blockchair.com/ecash/address/{$address}";
         }
 	}
 
