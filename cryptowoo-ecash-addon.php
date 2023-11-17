@@ -46,7 +46,7 @@ function cryptowoo_xec_addon_activate() {
 	}
 
 	if( (defined('CWOO_VERSION' ) && version_compare(CWOO_VERSION, '0.22.0', '<'))  || (defined('HDWALLET_VER' ) && version_compare(HDWALLET_VER, '0.9.1', '<'))) {
-		deactivate_plugins( '/cryptowoo-bitcoin-cash-addon/cryptowoo-bitcoin-cash-addon.php', true );
+		deactivate_plugins( '/cryptowoo-ecash-addon/cryptowoo-ecash-addon.php', true );
 	}
 }
 
@@ -352,7 +352,7 @@ function cwxec_link_to_address( $url, $address, $currency, $options ) {
 				$url = '#';
 			}
 		} elseif ( $options[ 'preferred_block_explorer_xec' ] === 'blockchair' ) {
-			$url     = "https://blockchair.com/bitcoin-cash/address/{$address}";
+			$url     = "https://blockchair.com/ecash/address/{$address}";
         }
 	}
 
@@ -1436,7 +1436,7 @@ function cwxec_add_fields() {
 		'desc'       => '',
 		'options'    => array(
 			'autoselect'   => __( 'Autoselect by processing API', 'cryptowoo' ),
-			'cashexplorer' => 'explorer.bitcoin.com',
+			// 'cashexplorer' => 'explorer.bitcoin.com',
 			//'blockdozer'   => 'blockdozer.com',
 			'blockchair' => 'blockchair.com',
 			'custom'       => __( 'Custom (enter URL below)' ),
