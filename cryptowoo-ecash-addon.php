@@ -78,8 +78,8 @@ function enqueue_scripts_xec_addon() {
 			[ 'wc-checkout', 'jquery' ],
 			1
 		);
-		// https://github.com/bitcoincashjs/xecaddr by Emilio Almansi
-		wp_enqueue_script( 'xecaddr', plugins_url('js/xecaddrjs-0.2.1.min.js', __FILE__), array('wc-checkout', 'jquery'), 1 );
+		// https://github.com/bytesofman/xecaddrjs by BytesOfMan
+		wp_enqueue_script( 'xecaddr', plugins_url('js/xecaddrjs-0.0.1.min.js', __FILE__), array('wc-checkout', 'jquery'), 1 );
 
 	}
 }
